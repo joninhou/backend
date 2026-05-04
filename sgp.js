@@ -26,8 +26,24 @@ function atualizarInventario(inventarioAtual, acao, nomeDoItem) {
 if (acao === "pegar"){
         const inventarioComItemNovo = [inventarioAtual, nomeDoItem];
         novoInventario = inventarioComItemNovo;
-    } else if (acao === "Descartar") //Parei aqui
-}
+    } else if (acao === "Descartar") {
+        const inventarioSemUltimoItem = inventarioAtual.slice(); 
+        novoInventario = inventarioSemUltimoItem;
+    } else {
+        novoInventario = inventarioAtual;
+    }
+    return novoInventario; //Retornar a mochila do jogador atualizada
+};
 
-const pontosDoJogador = [100, 50, 200, 50]
-console.log(pontosDoJogador);
+const pontosDoJogador = [100, 5, 200, 50]
+const total = calcularPontuacaoTotal(pontosDoJogador);
+console.log("Pontuação final: ", total);
+
+const missoes = [
+    {nome: "Salvar a aldeia", status: "concluída"},
+    {nome: "Encontrar  o mapa", status: "em andamento"},
+    {nome: "Derrotar o chefão", status: "falhou"},
+    {nome: "Coletar recursos", status: "concluída"}
+];
+
+console.log(missoes);
